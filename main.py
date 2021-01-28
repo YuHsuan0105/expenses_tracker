@@ -5,6 +5,7 @@ from telegram.ext import Updater
 from api import(
     utility,
     outgo_cmd,
+    income_cmd,
 )
 
 def main() -> None:
@@ -16,6 +17,7 @@ def main() -> None:
     dpr = udr.dispatcher
 
     dpr.add_handler(outgo_cmd.get_handler())
+    dpr.add_handler(income_cmd.get_handler())
     # must be last added
     dpr.add_handler(utility.unknown_handler())
 
