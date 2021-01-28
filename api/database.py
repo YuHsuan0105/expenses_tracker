@@ -1,4 +1,5 @@
 import os
+from typing import Tuple
 
 import pymysql
 
@@ -20,3 +21,15 @@ def insert(table: str, user: int, money: int, category: str) -> None:
         with conn.cursor() as cur:
             cur.execute(sql)
         conn.commit()
+
+def select(table: str, user: int, condition: str) -> Tuple[Tuple[int, str, str]]:
+    sql = (
+        f"select money, category, created_at from {table} "
+        f"where user_id = '{user}' and {condition};"
+    )
+    with get_conn() as conn:
+        with conn.cursor() as cur:
+            cur.execute(sql)
+            results = cur.fetchall()
+    return results
+        
