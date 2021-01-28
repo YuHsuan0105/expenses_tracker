@@ -1,6 +1,6 @@
 FROM python:latest
 
-ENV PKGS="python-telegram-bot pymysql"
+ENV PKGS="python-telegram-bot pymysql matplotlib"
 
 WORKDIR /app
 COPY . .
