@@ -8,6 +8,7 @@ from api import(
     income_cmd,
     list_cmd,
     graph_cmd,
+    help_cmd,
 )
 
 def main() -> None:
@@ -22,6 +23,7 @@ def main() -> None:
     dpr.add_handler(income_cmd.get_handler())
     dpr.add_handler(list_cmd.get_handler())
     dpr.add_handler(graph_cmd.get_handler())
+    dpr.add_handler(help_cmd.get_handler())
     # must be last added
     dpr.add_handler(utility.unknown_handler())
 
